@@ -1,0 +1,3 @@
+C:/Users/Tori/CLionProjects/progHF/cmake-build-debug/CMakeFiles/progHF.dir
+C:/Users/Tori/CLionProjects/progHF/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Tori/CLionProjects/progHF/cmake-build-debug/CMakeFiles/rebuild_cache.dir
