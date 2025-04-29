@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.20)
 project(progHF)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -13,4 +13,4 @@ add_executable(progHF main.cpp
         Circle.cpp
         Circle.h
         Rectangle.cpp
-        Rectangle.h)
+        Rectangle.h Shapes.cpp Shapes.hpp)

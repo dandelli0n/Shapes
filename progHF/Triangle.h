@@ -11,14 +11,12 @@
 class Triangle : public PlaneShape
 {
 public:
-    Triangle(Point x, Point y);
+    Triangle(Point center, Point p1) : PlaneShape(center, p1) {}
     bool isPointOnShape(Point p) override;
-    bool isShapeOnCircle(Point p) override;
-    void operator<<(std::ostream& os, Triangle& t);
-    void operator>>() override;
-    void print();
+    bool isShapeOnCircle(double r) override;
 };
-
+std::ostream& operator<<(std::ostream& os, const Triangle& rhs);
+std::istream& operator>>(std::istream& is, Triangle* rhs);
 
 
 #endif //TRIANGLE_H

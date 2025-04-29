@@ -10,14 +10,16 @@
 
 class Circle : public PlaneShape
 {
-public:
-    Circle(Point x, Point y);
-    bool isPointOnShape(Point p) override;
-    bool isShapeOnCircle(Point p) override;
-    void operator<<(std::ostream os, Circle& circle);
-    void operator>>() override;
 
+public:
+    Circle(Point c, Point p) : PlaneShape(c, p) {}
+
+    bool isPointOnShape(Point p) override;
+    bool isShapeOnCircle(double r) override;
 };
+
+std::ostream& operator<<(std::ostream& os, const Circle& rhs);
+std::istream& operator>>(std::istream& is, Circle* rhs);
 
 
 

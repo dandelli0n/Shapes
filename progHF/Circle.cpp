@@ -3,3 +3,9 @@
 //
 
 #include "Circle.h"
+
+bool Circle::isPointOnShape(Point p)
+{
+
+    return false;
+}

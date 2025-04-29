@@ -6,22 +6,25 @@
 #define PLANESHAPE_H
 #include "Point.h"
 #include <iostream>
+#include <math.h>
 class PlaneShape
 {
-    private:
-    Point p1, p2;
+private:
+    Point centre;
+    Point p1;
+public:
+    PlaneShape(Point c, Point p) : centre(c), p1(p) {}
 
-    public:
+    /*  behavior of different kind of plane shapes is implemented here in these two functions, no need for other attributes
+     * (such as more points or the radius of the circle) */
     virtual bool isPointOnShape(Point p) = 0;
-
-    virtual bool isShapeOnCircle(Point p) = 0;
-
-    virtual void operator<<();
-
-    virtual void operator>>() = 0;
+    virtual bool isShapeOnCircle(double r) = 0;
+    Point getCentre();
+    Point getP();
+    double distance(Point a, Point b);
+    double radius();
 
     virtual ~PlaneShape() = default;
 };
-
 
 #endif //PLANESHAPE_H

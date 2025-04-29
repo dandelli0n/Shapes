@@ -14,7 +14,10 @@ class Point
 
     public:
     Point();
+    Point(Point&);
     Point(double x, double y);
+    double getX();
+    double getY();
 };
 
 

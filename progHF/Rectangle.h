@@ -11,14 +11,14 @@
 
 class Rectangle : public PlaneShape
 {
-public:
-    Rectangle();
-    bool isPointOnShape(Point p) override;
-    bool isShapeOnCircle(Point p) override;
-    void operator<<(std::ostream& os, Rectangle& rec);
-    void operator>>(std::istream& is, Rectangle& rec);
-};
 
+public:
+    Rectangle(Point c, Point p) : PlaneShape(c, p) {}
+    bool isPointOnShape(Point p) override;
+    bool isShapeOnCircle(double r) override;
+};
+std::ostream& operator<<(std::ostream& os, const Rectangle& rhs);
+std::istream& operator>>(std::istream& is, Rectangle* rhs);
 
 
 #endif //RECTANGLE_H
