@@ -13,4 +13,6 @@ add_executable(progHF main.cpp
         Circle.cpp
         Circle.h
         Rectangle.cpp
-        Rectangle.h Shapes.cpp Shapes.hpp)
+        Rectangle.h
+        Shapes.hpp
+        Shapes.cpp)

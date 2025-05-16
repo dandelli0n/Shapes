@@ -6,20 +6,18 @@
 #define PROGHF_SHAPES_HPP
 #include "PlaneShape.h"
 
-template<int arraySize = 10>
+template<int MAX = 10>
 class Shapes
 {
-    PlaneShape * data[arraySize];
-    int size;
+    PlaneShape * data[MAX];
+    size_t size;
 public:
     Shapes();
-    void addToCollection(PlaneShape& p);
-    int getSize();
-    void print();
-    void deleteCollection();
+    void addToCollection(const PlaneShape* p);
+    //int getSize();
+    //void print();
+    //void popBack();
+    //void deleteCollection();
 };
-
-
-
 
 #endif //PROGHF_SHAPES_HPP

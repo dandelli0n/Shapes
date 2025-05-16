@@ -6,21 +6,50 @@
 
 double PlaneShape::distance(Point a, Point b)
 {
-    double dist = sqrt(((a.getX() - b.getX()) * (a.getX() - b.getX())) + ((a.getY() - b.getY()) * (a.getY() - b.getY())));
-    return dist;
+    Point np((a.getX() - b.getX()), (a.getY() - b.getY())); // new Point so the calculations don't get all over the place
+    double res = sqrt((np.getX() * np.getX()) + (np.getY() * np.getY()));
+    return res;
 }
 
-double PlaneShape::radius()
+double PlaneShape::radius() const
 {
     return distance(centre, p1);
 }
 
-Point PlaneShape::getCentre()
+Point PlaneShape::getCentre() const
 {
     return centre;
 }
 
-Point PlaneShape::getP()
+Point PlaneShape::getp1() const
 {
     return p1;
 }
+
+bool PlaneShape::isShapeOnCircle(double r)
+{
+    Point np;
+    Point orig(0, 0);
+    double centreDistance = distance(orig, centre);
+    if(centreDistance < r)
+        return true;
+
+    np.setX(centre.getX() * r / centreDistance);
+    np.setY(centre.getY() * r / centreDistance);
+
+
+    return isPointOnShape(np);
+}
+
+void PlaneShape::setPoint(Point& dest, Point& what)
+{
+    dest.setX(what.getX());
+    dest.setY(what.getY());
+}
+
+
+
+
+
+
+
