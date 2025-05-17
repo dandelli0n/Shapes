@@ -118,6 +118,9 @@
 		<Unit filename="D:/egyetem/8.felev/prog2/HF/Shapes/Shapes/progHF/Triangle.h">
 			<Option target="progHF"/>
 		</Unit>
+		<Unit filename="D:/egyetem/8.felev/prog2/HF/Shapes/Shapes/progHF/gtest_lite.h">
+			<Option target="progHF"/>
+		</Unit>
 		<Unit filename="D:/egyetem/8.felev/prog2/HF/Shapes/Shapes/progHF/main.cpp">
 			<Option target="progHF"/>
 		</Unit>

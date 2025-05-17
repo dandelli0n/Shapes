@@ -10,20 +10,36 @@ bool Circle::isPointOnShape(Point& p) const
     return d <= radius();
 }
 
-double Circle::area()
+double Circle::area() const
 {
-    return 0;
+    return radius()*radius()*3.14;
 }
 
-Circle &Circle::operator=(Circle circ)
+Circle &Circle::operator=(const Circle& circ)
 {
     centre = circ.centre;
     p1 = circ.p1;
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &os, Circle& rhs)
+/*std::ostream &operator<<(std::ostream &os, Circle const& rhs)
 {
     os << "Circle: centre = " << rhs.getCentre() << " point = " << rhs.getp1() << std::endl;
     return os;
+}*/
+
+PlaneShape *Circle::clone() const
+{
+    return new Circle(*this);  // deep copy
 }
+
+void Circle::print(std::ostream &os) const
+{
+    os << "Circle: centre = " << centre << " point = " << p1 << std::endl;
+}
+
+void Circle::read(std::istream &is)
+{
+    is >> centre >> p1;
+}
+

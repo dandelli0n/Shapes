@@ -3,6 +3,7 @@ project(progHF)
 
 set(CMAKE_CXX_STANDARD 14)
 
+
 add_executable(progHF main.cpp
         PlaneShape.cpp
         PlaneShape.h
@@ -15,4 +16,6 @@ add_executable(progHF main.cpp
         Rectangle.cpp
         Rectangle.h
         Shapes.hpp
-        Shapes.cpp)
+        Shapes.cpp
+        gtest_lite.h
+        )

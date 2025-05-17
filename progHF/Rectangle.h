@@ -19,15 +19,20 @@ private:
 
 public:
     Rectangle(Point c, Point p);
-    //Rectangle(Point c, Point p1, Point p2, Point p3, Point p4) : PlaneShape(c, p1), p2(p2), p3(p3), p4(p4) {}
+    Rectangle() = default;
+
     Point& getp2();
     Point& getp3();
     Point& getp4();
-    double area() override;
-    bool isPointOnShape(Point p) override;
-    friend std::ostream& operator<<(std::ostream& os, const Rectangle& rhs);
+
+    double area() const override;
+    PlaneShape* clone() const override;
+    //friend std::ostream& operator<<(std::ostream& os, const Rectangle & rhs);
     Rectangle& operator=(const Rectangle& rect);
-    //bool isShapeOnCircle(double r) override;
+    void read(std::istream& is) override;
+    void print(std::ostream& os) const override;
+    bool isPointOnShape(Point & p) const override;
+    ~Rectangle() override = default;
 };
 
 //std::istream& operator>>(std::istream& is, Rectangle* rhs);

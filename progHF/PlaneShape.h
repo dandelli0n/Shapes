@@ -14,16 +14,24 @@ protected:
     Point centre;
     Point p1;
 public:
+    PlaneShape() = default;
     PlaneShape(Point c, Point p) : centre(c), p1(p) {}
-    void setPoint(Point& dest, Point& what);
-    virtual bool isPointOnShape(Point& p) const = 0;
-    bool isShapeOnCircle(double r);
-    virtual double area() = 0;
-    Point getCentre() const;
-    Point getp1() const;
+
+    Point& getp1();
+    Point& getCentre();
+    const Point& getCentre() const;
     static double distance(Point a, Point b);
     double radius() const;
+    virtual double area() const = 0;
+    virtual PlaneShape* clone() const = 0;
 
+    virtual void print(std::ostream& os) const = 0;
+    virtual void read(std::istream& is) = 0;
+
+    bool isShapeOnCircle(double r) const;
+    virtual bool isPointOnShape(Point& p) const = 0;
+    friend std::ostream& operator<<(std::ostream& os, const PlaneShape & rhs);
+    friend std::istream& operator>>(std::istream& is, PlaneShape & rhs);
     virtual ~PlaneShape() = default;
 };
 

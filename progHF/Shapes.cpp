@@ -4,20 +4,23 @@
 
 #include "Shapes.hpp"
 
-template<int MAX>
-Shapes<MAX>::Shapes() : size(0)
+size_t Shapes::getSize()
 {
-    data = new PlaneShape*[MAX];
-
+    return size;
 }
 
-template<int MAX>
-void Shapes<MAX>::addToCollection(const PlaneShape *p)
+PlaneShape *Shapes::operator[](size_t s)
 {
-    if(size >= MAX)
-    {
-        //make new collection that fits current +10 elements
-    }
-    *data[size] = *p;
-    size+=1;
+    if(s > size)
+        throw std::out_of_range("Out of range");
+
+    return data[s];
 }
+
+void Shapes::popBack()
+{
+    size--;
+    delete data[size];
+}
+
+

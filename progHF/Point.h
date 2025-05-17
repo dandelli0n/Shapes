@@ -18,16 +18,18 @@ private:
     public:
     Point() : x(0), y(0) {}
     Point(double x, double y) : x(x), y(y) {}
-    double getX();
-    double getY();
+    double getX() const;
+    double getY() const;
     void setX(double nx);
     void setY(double ny);
     void move(double nx = 0, double ny = 0);
-    Point& operator=(Point rhs);
+    friend std::istream& operator>>(std::istream& is, Point& p);
+    friend std::ostream &operator<<(std::ostream &os, Point const & rhs);
+    Point& operator=(const Point & rhs);
 
 };
 
-bool operator==(Point& lhs, Point& rhs);
-std::ostream &operator<<(std::ostream &os, Point rhs);
+bool operator==(Point const & lhs, Point const & rhs);
+
 
 #endif //POINT_H

@@ -36,4 +36,6 @@ CMakeFiles/progHF.dir/main.cpp.obj: \
  ../Rectangle.h \
  ../Shapes.hpp \
  ../Triangle.h \
- ../main.cpp
+ ../gtest_lite.h \
+ ../main.cpp \
+ ../memtrace.h

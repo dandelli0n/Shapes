@@ -16,17 +16,17 @@ double PlaneShape::radius() const
     return distance(centre, p1);
 }
 
-Point PlaneShape::getCentre() const
+Point& PlaneShape::getCentre()
 {
     return centre;
 }
 
-Point PlaneShape::getp1() const
+Point& PlaneShape::getp1()
 {
     return p1;
 }
 
-bool PlaneShape::isShapeOnCircle(double r)
+bool PlaneShape::isShapeOnCircle(double r) const
 {
     Point np;
     Point orig(0, 0);
@@ -41,10 +41,21 @@ bool PlaneShape::isShapeOnCircle(double r)
     return isPointOnShape(np);
 }
 
-void PlaneShape::setPoint(Point& dest, Point& what)
+std::ostream &operator<<(std::ostream &os, const PlaneShape &rhs)
 {
-    dest.setX(what.getX());
-    dest.setY(what.getY());
+    rhs.print(os);
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, PlaneShape & rhs)
+{
+    rhs.read(is);
+    return is;
+}
+
+const Point &PlaneShape::getCentre() const
+{
+    return centre;
 }
 
 

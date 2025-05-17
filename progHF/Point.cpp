@@ -20,25 +20,37 @@ void Point::move(double nx, double ny)
     y += ny;
 }
 
-Point& Point::operator=(Point rhs)
+
+
+double Point::getX() const
+{
+    return x;
+}
+
+double Point::getY() const
+{
+    return y;
+}
+Point& Point::operator=(const Point & rhs)
 {
     x = rhs.getX();
     y = rhs.getY();
     return *this;
 }
 
-double Point::getX()
+std::istream &operator>>(std::istream &is, Point &p)
 {
-    return x;
+    return is >> p.x >> p.y;
 }
 
-double Point::getY()
-{
-    return x;
-}
-
-std::ostream &operator<<(std::ostream &os, Point& rhs)
+std::ostream &operator<<(std::ostream &os, Point const & rhs)
 {
     os << "(" << rhs.getX() << ", " << rhs.getY() << ")";
     return os;
 }
+
+bool operator==(Point const & lhs, Point const & rhs)
+{
+    return (lhs.getX() == rhs.getX() && lhs.getY() == rhs.getY());
+}
+
